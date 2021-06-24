@@ -59,6 +59,10 @@ open class YPImagePicker: UINavigationController {
 		public required init?(coder aDecoder: NSCoder) {
 				fatalError("init(coder:) has not been implemented")
 		}
+  
+    public func nextButtonTapped() {
+      picker.done()
+    }
 
 override open func viewDidLoad() {
 				super.viewDidLoad()

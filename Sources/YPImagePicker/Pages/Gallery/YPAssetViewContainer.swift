@@ -89,13 +89,13 @@ class YPAssetViewContainer: UIView {
         }
         
         // Multiple selection button
-        subviews {
-            multipleSelectionButton
-        }
-        multipleSelectionButton.size(42)
-        multipleSelectionButton-15-|
-        multipleSelectionButton.setImage(YPConfig.icons.multipleSelectionOffIcon, for: .normal)
-        multipleSelectionButton.Bottom == zoomableView!.Bottom - 15
+//        subviews {
+//            multipleSelectionButton
+//        }
+//        multipleSelectionButton.size(42)
+//        multipleSelectionButton-15-|
+//        multipleSelectionButton.setImage(YPConfig.icons.multipleSelectionOffIcon, for: .normal)
+//        multipleSelectionButton.Bottom == zoomableView!.Bottom - 15
         
     }
     
@@ -111,7 +111,7 @@ class YPAssetViewContainer: UIView {
     
     public func refreshSquareCropButton() {
         if onlySquare {
-            squareCropButton.isHidden = true
+          squareCropButton.isHidden = true
         } else {
             if let image = zoomableView?.assetImageView.image {
                 let isImageASquare = image.size.width == image.size.height

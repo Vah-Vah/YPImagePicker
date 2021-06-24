@@ -66,6 +66,16 @@ class ExampleViewController: UIViewController {
     func showPicker() {
 
         var config = YPImagePickerConfiguration()
+      
+      config.library.mediaType = .photo
+      config.library.onlySquare = true
+      config.shouldSaveNewPicturesToAlbum = false
+      config.startOnScreen = .library
+      config.wordings.libraryTitle = "Recents"
+      config.screens = [.library]
+      config.library.maxNumberOfItems = 5
+      config.library.skipSelectionsGallery = true
+      config.showsPhotoFilters = false
 
         /* Uncomment and play around with the configuration 👨‍🔬 🚀 */
 
@@ -80,8 +90,8 @@ class ExampleViewController: UIViewController {
         // config.targetImageSize = .cappedTo(size: 1024)
 
         /* Choose what media types are available in the library. Defaults to `.photo` */
-        config.library.mediaType = .photoAndVideo
-		config.library.itemOverlayType = .grid
+//        config.library.mediaType = .photoAndVideo
+//		config.library.itemOverlayType = .grid
         /* Enables selecting the front camera by default, useful for avatars. Defaults to false */
         // config.usesFrontCamera = true
 
@@ -96,10 +106,10 @@ class ExampleViewController: UIViewController {
 
         /* Enables you to opt out from saving new (or old but filtered) images to the
            user's photo library. Defaults to true. */
-        config.shouldSaveNewPicturesToAlbum = false
+//        config.shouldSaveNewPicturesToAlbum = false
 
         /* Choose the videoCompression. Defaults to AVAssetExportPresetHighestQuality */
-        config.video.compression = AVAssetExportPresetMediumQuality
+//        config.video.compression = AVAssetExportPresetMediumQuality
 
         /* Defines the name of the album when saving pictures in the user's photo library.
            In general that would be your App name. Defaults to "DefaultYPImagePickerAlbumName" */
@@ -107,11 +117,11 @@ class ExampleViewController: UIViewController {
 
         /* Defines which screen is shown at launch. Video mode will only work if `showsVideo = true`.
            Default value is `.photo` */
-        config.startOnScreen = .library
+//        config.startOnScreen = .library
 
         /* Defines which screens are shown at launch, and their order.
            Default value is `[.library, .photo]` */
-        config.screens = [.library, .photo, .video]
+//        config.screens = [.library, .photo, .video]
 
         /* Can forbid the items with very big height with this property */
 //        config.library.minWidthForItem = UIScreen.main.bounds.width * 0.8
@@ -122,10 +132,10 @@ class ExampleViewController: UIViewController {
 
         /* Defines the time limit for videos from the library.
            Defaults to 60 seconds. */
-        config.video.libraryTimeLimit = 500.0
+//        config.video.libraryTimeLimit = 500.0
 
         /* Adds a Crop step in the photo taking process, after filters. Defaults to .none */
-        config.showsCrop = .rectangle(ratio: (16/9))
+//        config.showsCrop = .rectangle(ratio: (16/9))
 
         /* Defines the overlay view for the camera. Defaults to UIView(). */
         // let overlayView = UIView()
@@ -134,18 +144,18 @@ class ExampleViewController: UIViewController {
         // config.overlayView = overlayView
 
         /* Customize wordings */
-        config.wordings.libraryTitle = "Gallery"
+//        config.wordings.libraryTitle = "Gallery"
 
         /* Defines if the status bar should be hidden when showing the picker. Default is true */
-        config.hidesStatusBar = false
+//        config.hidesStatusBar = false
 
         /* Defines if the bottom bar should be hidden when showing the picker. Default is false */
-        config.hidesBottomBar = false
+//        config.hidesBottomBar = false
 
-        config.maxCameraZoomFactor = 2.0
-
-        config.library.maxNumberOfItems = 5
-        config.gallery.hidesRemoveButton = false
+//        config.maxCameraZoomFactor = 2.0
+//
+//        config.library.maxNumberOfItems = 5
+//        config.gallery.hidesRemoveButton = false
 
         /* Disable scroll to change between mode */
         // config.isScrollToChangeModesEnabled = false
@@ -171,7 +181,7 @@ class ExampleViewController: UIViewController {
         //
         //config.library.options = options
 
-        config.library.preselectedItems = selectedItems
+//        config.library.preselectedItems = selectedItems
 
 
 		// Customise fonts
@@ -184,9 +194,12 @@ class ExampleViewController: UIViewController {
         let picker = YPImagePicker(configuration: config)
 
         picker.imagePickerDelegate = self
+      picker.navigationBar.isHidden = true
 
         /* Change configuration directly */
         // YPImagePickerConfiguration.shared.wordings.libraryTitle = "Gallery2"
+      
+      picker.nextButtonTapped()
 
         /* Multiple media implementation */
         picker.didFinishPicking { [unowned picker] items, cancelled in

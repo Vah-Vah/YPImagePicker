@@ -10,6 +10,11 @@ import UIKit
 import Stevia
 import Photos
 
+protocol MultipleAndRecentButtonsProtocol {
+  func recentButtonTapped()
+  func selectMultipleButtonTapped()
+}
+
 final class YPLibraryView: UIView {
     
     let assetZoomableViewMinimalVisibleHeight: CGFloat  = 50
@@ -18,15 +23,31 @@ final class YPLibraryView: UIView {
     @IBOutlet weak var assetZoomableView: YPAssetZoomableView!
     @IBOutlet weak var assetViewContainer: YPAssetViewContainer!
     @IBOutlet weak var assetViewContainerConstraintTop: NSLayoutConstraint!
+  
+    @IBOutlet weak var multipleBgView: UIView!
+    @IBOutlet weak var selectMultipleButton: UIButton!
+    @IBOutlet weak var recentsButton: UIButton!
+  
+    @IBOutlet weak var downArrowImage: UIImageView!
+    @IBOutlet weak var multipleImage: UIImageView!
+    @IBOutlet weak var bgView: UIView!
+  
     
     let maxNumberWarningView = UIView()
     let maxNumberWarningLabel = UILabel()
     let progressView = UIProgressView()
     let line = UIView()
     var shouldShowLoader = false
+    var buttonsDelegate: MultipleAndRecentButtonsProtocol? = nil
+    var isMultipleTapped = false
     
     override func awakeFromNib() {
         super.awakeFromNib()
+//      assetViewContainer.multipleSelectionButton
+      downArrowImage.image = UIImage(named: "DownArrowGray")
+      multipleImage.image = UIImage(named: "MultipleImageBlack")
+      multipleBgView.layer.cornerRadius = 15
+      bgView.backgroundColor = UIColor(red: 243.0/255.0, green: 243.0/255.0, blue: 243.0/255.0, alpha: 1)
         
         subviews {
             line
@@ -83,6 +104,15 @@ final class YPLibraryView: UIView {
         progressView.isHidden = true
         progressView.isUserInteractionEnabled = false
     }
+  
+  @IBAction func recentButtonTapped(_ sender: UIButton) {
+    buttonsDelegate?.recentButtonTapped()
+  }
+  
+  @IBAction func multipleSelectButtonTapped(_ sender: UIButton) {
+    buttonsDelegate?.selectMultipleButtonTapped()
+  }
+  
 }
 
 // MARK: - UI Helpers

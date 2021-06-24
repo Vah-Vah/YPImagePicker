@@ -47,14 +47,13 @@ open class YPPickerVC: YPBottomPager, YPBottomPagerDelegate {
     
     open override func viewDidLoad() {
         super.viewDidLoad()
-
         view.backgroundColor = YPConfig.colors.safeAreaBackgroundColor
-        
         delegate = self
         
         // Force Library only when using `minNumberOfItems`.
         if YPConfig.library.minNumberOfItems > 1 {
             YPImagePickerConfiguration.shared.screens = [.library]
+          
         }
         
         // Library
@@ -122,6 +121,8 @@ open class YPPickerVC: YPBottomPager, YPBottomPagerDelegate {
         
         YPHelper.changeBackButtonIcon(self)
         YPHelper.changeBackButtonTitle(self)
+      
+      libraryVC?.v.buttonsDelegate = self
     }
     
     open override func viewWillAppear(_ animated: Bool) {
@@ -329,6 +330,19 @@ open class YPPickerVC: YPBottomPager, YPBottomPagerDelegate {
         videoVC?.stopCamera()
         cameraVC?.stopCamera()
     }
+}
+
+extension YPPickerVC: MultipleAndRecentButtonsProtocol {
+  func recentButtonTapped() {
+    navBarTapped()
+  }
+  
+  func selectMultipleButtonTapped() {
+    libraryVC!.multipleSelectionEnabled.toggle()
+    libraryVC?.showMultipleSelection()
+  }
+  
+  
 }
 
 extension YPPickerVC: YPLibraryViewDelegate {
