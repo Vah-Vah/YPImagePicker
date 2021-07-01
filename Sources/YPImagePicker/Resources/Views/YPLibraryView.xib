@@ -2,7 +2,6 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -38,13 +37,13 @@
                             <rect key="frame" x="0.0" y="400" width="400" height="51"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recents" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X8D-eE-cp4">
-                                    <rect key="frame" x="17" y="13" width="50.5" height="25"/>
-                                    <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="14"/>
+                                    <rect key="frame" x="17" y="13" width="54" height="25"/>
+                                    <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="15"/>
                                     <color key="textColor" red="0.50980392159999999" green="0.50980392159999999" blue="0.50980392159999999" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="DownArrowGray" translatesAutoresizingMaskIntoConstraints="NO" id="fw5-jj-YC8">
-                                    <rect key="frame" x="73" y="22.5" width="10" height="6"/>
+                                    <rect key="frame" x="76.5" y="24.5" width="10" height="6"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="6" id="loh-q0-Kth"/>
                                         <constraint firstAttribute="width" constant="10" id="pDF-rc-XCX"/>
@@ -105,7 +104,7 @@
                                 <constraint firstItem="y6T-uL-dvx" firstAttribute="leading" secondItem="avv-ld-UAz" secondAttribute="leading" id="SzW-3m-xCN"/>
                                 <constraint firstAttribute="bottom" secondItem="j7E-CS-ebk" secondAttribute="bottom" constant="11" id="Xyn-Ou-uF7"/>
                                 <constraint firstItem="fw5-jj-YC8" firstAttribute="leading" secondItem="X8D-eE-cp4" secondAttribute="trailing" constant="5.3399999999999999" id="akq-ra-Og1"/>
-                                <constraint firstItem="fw5-jj-YC8" firstAttribute="centerY" secondItem="X8D-eE-cp4" secondAttribute="centerY" id="bid-9s-XhZ"/>
+                                <constraint firstItem="fw5-jj-YC8" firstAttribute="centerY" secondItem="X8D-eE-cp4" secondAttribute="centerY" constant="2" id="bid-9s-XhZ"/>
                                 <constraint firstItem="y6T-uL-dvx" firstAttribute="bottom" secondItem="avv-ld-UAz" secondAttribute="bottom" id="cMq-Vy-qmf"/>
                                 <constraint firstItem="y6T-uL-dvx" firstAttribute="top" secondItem="avv-ld-UAz" secondAttribute="top" id="cWH-ei-hBf"/>
                                 <constraint firstItem="X8D-eE-cp4" firstAttribute="top" secondItem="UYE-A1-4Qq" secondAttribute="top" constant="13" id="efo-Ah-RR3"/>
@@ -165,10 +164,12 @@
                 <outlet property="assetZoomableView" destination="Mc5-1c-z7q" id="sGM-mc-f2B"/>
                 <outlet property="collectionView" destination="6id-Ro-HHC" id="NDT-3i-ayr"/>
                 <outlet property="downArrowImage" destination="fw5-jj-YC8" id="33C-Zt-Q3C"/>
+                <outlet property="libraryTitle" destination="X8D-eE-cp4" id="hNe-rE-F8q"/>
                 <outlet property="multipleBgView" destination="avv-ld-UAz" id="zdE-ld-ynr"/>
                 <outlet property="multipleImage" destination="0Tr-Pe-H47" id="VMr-CF-SPx"/>
                 <outlet property="recentsButton" destination="j7E-CS-ebk" id="FSt-oK-0ax"/>
                 <outlet property="selectMultipleButton" destination="y6T-uL-dvx" id="XEU-pW-aBi"/>
+                <outlet property="selectMultipleLabel" destination="mfg-6D-NDW" id="yQb-dS-zr5"/>
             </connections>
             <point key="canvasLocation" x="140.80000000000001" y="146.62668665667167"/>
         </view>

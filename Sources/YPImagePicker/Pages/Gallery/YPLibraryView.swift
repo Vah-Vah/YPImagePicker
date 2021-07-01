@@ -30,6 +30,8 @@ final class YPLibraryView: UIView {
   
     @IBOutlet weak var downArrowImage: UIImageView!
     @IBOutlet weak var multipleImage: UIImageView!
+    @IBOutlet weak var libraryTitle: UILabel!
+    @IBOutlet weak var selectMultipleLabel: UILabel!
 //    @IBOutlet weak var bgView: UIView!
   
     
@@ -109,7 +111,15 @@ final class YPLibraryView: UIView {
   }
   
   @IBAction func multipleSelectButtonTapped(_ sender: UIButton) {
+    isMultipleTapped.toggle()
     buttonsDelegate?.selectMultipleButtonTapped()
+    UIView.transition(with: multipleImage, duration: 0.3, options: .transitionCrossDissolve) { [self] in
+      multipleBgView.backgroundColor = isMultipleTapped ? UIColor(named: "MultipleImageSelectedColor") : UIColor(named: "MultipleImageDeselectedColor")
+      selectMultipleLabel.textColor = isMultipleTapped ? .white : .black
+      multipleImage.image = isMultipleTapped ? UIImage(named: "MultipleImageWhite") : UIImage(named: "MultipleImageBlack")
+    } completion: { _ in
+      print("Completed")
+    }
   }
   
 }

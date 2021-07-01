@@ -44,6 +44,7 @@ public class YPLibraryVC: UIViewController, YPPermissionCheckable {
         if !multipleSelectionEnabled {
             selection.removeAll()
         }
+      v.libraryTitle.text = title
         refreshMediaRequest()
     }
     
