@@ -43,7 +43,7 @@
                                     <color key="textColor" red="0.50980392159999999" green="0.50980392159999999" blue="0.50980392159999999" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="DownArrowGray" translatesAutoresizingMaskIntoConstraints="NO" id="fw5-jj-YC8">
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="DownArrowButtonGray" translatesAutoresizingMaskIntoConstraints="NO" id="fw5-jj-YC8">
                                     <rect key="frame" x="76.5" y="24.5" width="10" height="6"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="6" id="loh-q0-Kth"/>
@@ -176,7 +176,7 @@
         </view>
     </objects>
     <resources>
-        <image name="DownArrowGray" width="10" height="6"/>
+        <image name="DownArrowButtonGray" width="10" height="6"/>
         <image name="MultipleImageBlack" width="17" height="17"/>
     </resources>
 </document>
