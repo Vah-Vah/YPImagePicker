@@ -45,7 +45,7 @@ final class YPLibraryView: UIView {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-      downArrowImage.image = UIImage(named: "DownArrowGray")
+      downArrowImage.image = UIImage(named: "DownArrowButtonGray")
       multipleImage.image = UIImage(named: "MultipleImageBlack")
       multipleBgView.layer.cornerRadius = 15
 //      bgView.backgroundColor = UIColor(red: 243.0/255.0, green: 243.0/255.0, blue: 243.0/255.0, alpha: 1)
