@@ -70,4 +70,10 @@ public struct YPColors {
     public var progressBarTrackColor: UIColor = .ypSystemBackground
     /// The color of completed track for the progress bar
     public var progressBarCompletedColor: UIColor?
+  
+  /// The color of multiple image selection background view's color.
+  public var multipleImageSelectedColor: UIColor = colorFromBundle("MultipleImageSelectedColor")
+
+  /// The color of multiple image deselection background view's color.
+  public var multipleImageDeselectedColor: UIColor = colorFromBundle("MultipleImageDeselectedColor")
 }

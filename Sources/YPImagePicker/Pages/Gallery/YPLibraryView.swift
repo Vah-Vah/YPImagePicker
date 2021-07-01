@@ -45,8 +45,8 @@ final class YPLibraryView: UIView {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-      downArrowImage.image = UIImage(named: "DownArrowButtonGray")
-      multipleImage.image = UIImage(named: "MultipleImageBlack")
+      downArrowImage.image = YPConfig.icons.downArrowGray
+      multipleImage.image = YPConfig.icons.multipleSelectBlack
       multipleBgView.layer.cornerRadius = 15
 //      bgView.backgroundColor = UIColor(red: 243.0/255.0, green: 243.0/255.0, blue: 243.0/255.0, alpha: 1)
         
@@ -114,9 +114,9 @@ final class YPLibraryView: UIView {
     isMultipleTapped.toggle()
     buttonsDelegate?.selectMultipleButtonTapped()
     UIView.transition(with: multipleImage, duration: 0.3, options: .transitionCrossDissolve) { [self] in
-      multipleBgView.backgroundColor = isMultipleTapped ? UIColor(named: "MultipleImageSelectedColor") : UIColor(named: "MultipleImageDeselectedColor")
+      multipleBgView.backgroundColor = isMultipleTapped ? YPConfig.colors.multipleImageSelectedColor : YPConfig.colors.multipleImageDeselectedColor
       selectMultipleLabel.textColor = isMultipleTapped ? .white : .black
-      multipleImage.image = isMultipleTapped ? UIImage(named: "MultipleImageWhite") : UIImage(named: "MultipleImageBlack")
+      multipleImage.image = isMultipleTapped ? YPConfig.icons.multipleSelectWhite : YPConfig.icons.multipleSelectBlack
     } completion: { _ in
       print("Completed")
     }
