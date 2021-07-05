@@ -32,7 +32,6 @@ final class YPLibraryView: UIView {
     @IBOutlet weak var multipleImage: UIImageView!
     @IBOutlet weak var libraryTitle: UILabel!
     @IBOutlet weak var selectMultipleLabel: UILabel!
-//    @IBOutlet weak var bgView: UIView!
   
     
     let maxNumberWarningView = UIView()
@@ -48,8 +47,7 @@ final class YPLibraryView: UIView {
       downArrowImage.image = YPConfig.icons.downArrowGray
       multipleImage.image = YPConfig.icons.multipleSelectBlack
       multipleBgView.layer.cornerRadius = 15
-//      bgView.backgroundColor = UIColor(red: 243.0/255.0, green: 243.0/255.0, blue: 243.0/255.0, alpha: 1)
-        
+
         subviews {
             line
         }

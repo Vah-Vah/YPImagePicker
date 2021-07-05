@@ -123,6 +123,7 @@ open class YPPickerVC: YPBottomPager, YPBottomPagerDelegate {
         YPHelper.changeBackButtonTitle(self)
       
       libraryVC?.v.buttonsDelegate = self
+      libraryVC?.v.multipleBgView.isHidden = YPConfig.library.maxNumberOfItems == 1
     }
     
     open override func viewWillAppear(_ animated: Bool) {
