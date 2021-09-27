@@ -44,7 +44,18 @@ open class YPPickerVC: YPBottomPager, YPBottomPagerDelegate {
     var mode = Mode.camera
     
     var capturedImage: UIImage?
-    
+
+    var onCancelClick: () -> Void
+
+  init(onCancelClick: @escaping () -> Void = {}) {
+    self.onCancelClick = onCancelClick
+    super.init(nibName: nil, bundle: nil)
+  }
+
+  public required init?(coder: NSCoder) {
+    fatalError("init(coder:) has not been implemented")
+  }
+
     open override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = YPConfig.colors.safeAreaBackgroundColor
@@ -58,7 +69,9 @@ open class YPPickerVC: YPBottomPager, YPBottomPagerDelegate {
         
         // Library
         if YPConfig.screens.contains(.library) {
-            libraryVC = YPLibraryVC()
+          libraryVC = YPLibraryVC(items: [], onCancelClick: { [self] in
+            onCancelClick()
+          })
             libraryVC?.delegate = self
         }
         

@@ -22,15 +22,18 @@ public class YPLibraryVC: UIViewController, YPPermissionCheckable {
     internal var latestImageTapped = ""
     internal let panGestureHelper = PanGestureHelper()
 
+    var onCancelClick: () -> Void
+
     // MARK: - Init
     
-    public required init(items: [YPMediaItem]?) {
+  public required init(items: [YPMediaItem]?, onCancelClick: @escaping () -> Void = {}) {
+        self.onCancelClick = onCancelClick
         super.init(nibName: nil, bundle: nil)
         title = YPConfig.wordings.libraryTitle
     }
     
     public convenience init() {
-        self.init(items: nil)
+      self.init(items: nil)
     }
     
     public required init?(coder aDecoder: NSCoder) {
@@ -249,7 +252,8 @@ public class YPLibraryVC: UIViewController, YPPermissionCheckable {
             block(true)
         case .restricted, .denied:
             let popup = YPPermissionDeniedPopup()
-            let alert = popup.popup(cancelBlock: {
+          let alert = popup.popup(cancelBlock: { [self] in
+                onCancelClick()
                 block(false)
             })
             present(alert, animated: true, completion: nil)
