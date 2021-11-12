@@ -7,7 +7,7 @@ Pod::Spec.new do |s|
   s.authors = { 'JayMehta97'   => 'jaymmehta97@gmail.com' }
   s.platform         = :ios
   s.source           = { :git => "https://github.com/Vah-Vah/YPImagePicker.git",
-                         :branch => "master" }
+                         :branch => "enhancement/custom-podspec" }
   s.ios.deployment_target = "14.0"
   s.source_files = 'Source/**/*.swift'
   s.dependency 'SteviaLayout', '= 4.7.3'
