@@ -92,7 +92,7 @@ class YPLibraryViewCell: UICollectionViewCell {
         selectionOverlay.backgroundColor = .white
         selectionOverlay.alpha = 0
         backgroundColor = .ypSecondarySystemBackground
-        setAccessibilityInfo()
+//        setAccessibilityInfo()
     }
 
     override var isSelected: Bool {
@@ -109,10 +109,10 @@ class YPLibraryViewCell: UICollectionViewCell {
     }
 }
 
-extension YPLibraryViewCell: Accessibility {
-    func setAccessibilityInfo() {
-        isAccessibilityElement = true
-        self.accessibilityIdentifier = "YPLibraryViewCell"
-        self.accessibilityLabel = "Library Image"
-    }
-}
+//extension YPLibraryViewCell: UIAccessibility {
+//    func setAccessibilityInfo() {
+//        isAccessibilityElement = true
+//        self.accessibilityIdentifier = "YPLibraryViewCell"
+//        self.accessibilityLabel = "Library Image"
+//    }
+//}

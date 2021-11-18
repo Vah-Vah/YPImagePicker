@@ -121,6 +121,9 @@ open class YPPickerVC: YPBottomPager, YPBottomPagerDelegate {
         
         YPHelper.changeBackButtonIcon(self)
         YPHelper.changeBackButtonTitle(self)
+
+        libraryVC?.v.buttonsDelegate = self
+        libraryVC?.v.multipleBgView.isHidden = YPConfig.library.maxNumberOfItems == 1
     }
     
     open override func viewWillAppear(_ animated: Bool) {
@@ -331,6 +334,17 @@ open class YPPickerVC: YPBottomPager, YPBottomPagerDelegate {
         libraryVC?.v.assetZoomableView.videoView.deallocate()
         videoVC?.stopCamera()
         cameraVC?.stopCamera()
+    }
+}
+
+extension YPPickerVC: MultipleAndRecentButtonsProtocol {
+    func recentButtonTapped() {
+        navBarTapped()
+    }
+
+    func selectMultipleButtonTapped() {
+        libraryVC!.multipleSelectionEnabled.toggle()
+        libraryVC?.showMultipleSelection()
     }
 }
 

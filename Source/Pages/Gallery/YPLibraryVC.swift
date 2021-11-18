@@ -16,7 +16,7 @@ internal class YPLibraryVC: UIViewController, YPPermissionCheckable {
     internal var isProcessing = false // true if video or image is in processing state
     internal var selectedItems = [YPLibrarySelection]()
     internal let mediaManager = LibraryMediaManager()
-    internal var multipleSelectionEnabled = false
+    var multipleSelectionEnabled = false
     internal var currentlySelectedIndex: Int = 0
     internal let panGestureHelper = PanGestureHelper()
     internal var isInitialized = false
@@ -43,6 +43,7 @@ internal class YPLibraryVC: UIViewController, YPPermissionCheckable {
         if !multipleSelectionEnabled {
             selectedItems.removeAll()
         }
+        v.libraryTitle.text = title
         refreshMediaRequest()
     }
     
@@ -189,7 +190,7 @@ internal class YPLibraryVC: UIViewController, YPPermissionCheckable {
             return
         }
         
-        multipleSelectionEnabled = !multipleSelectionEnabled
+//        multipleSelectionEnabled = !multipleSelectionEnabled
         
         if multipleSelectionEnabled {
             if selectedItems.isEmpty && YPConfig.library.preSelectItemOnMultipleSelection,

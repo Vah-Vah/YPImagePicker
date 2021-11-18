@@ -80,4 +80,10 @@ public struct YPColors {
     public var albumTintColor: UIColor = .ypLabel
     /// The color of the Album's title color
     public var albumTitleColor: UIColor = .ypLabel
+
+    /// The color of multiple image selection background view's color.
+    public var multipleImageSelectedColor: UIColor = colorFromBundle("MultipleImageSelectedColor")
+
+    /// The color of multiple image deselection background view's color.
+    public var multipleImageDeselectedColor: UIColor = colorFromBundle("MultipleImageDeselectedColor")
 }

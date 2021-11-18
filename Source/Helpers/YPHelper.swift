@@ -22,6 +22,10 @@ internal func imageFromBundle(_ named: String) -> UIImage {
     return UIImage(named: named, in: Bundle.local, compatibleWith: nil) ?? UIImage()
 }
 
+internal func colorFromBundle(_ named: String) -> UIColor {
+    return UIColor(named: named, in: Bundle.local, compatibleWith: nil) ?? UIColor()
+}
+
 struct YPHelper {
     static func changeBackButtonIcon(_ controller: UIViewController) {
         if YPConfig.icons.shouldChangeDefaultBackButtonIcon {

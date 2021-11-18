@@ -10,6 +10,11 @@ import UIKit
 import Stevia
 import Photos
 
+protocol MultipleAndRecentButtonsProtocol {
+    func recentButtonTapped()
+    func selectMultipleButtonTapped()
+}
+
 final class YPLibraryView: UIView {
     
     let assetZoomableViewMinimalVisibleHeight: CGFloat  = 50
@@ -18,6 +23,15 @@ final class YPLibraryView: UIView {
     @IBOutlet weak var assetZoomableView: YPAssetZoomableView!
     @IBOutlet weak var assetViewContainer: YPAssetViewContainer!
     @IBOutlet weak var assetViewContainerConstraintTop: NSLayoutConstraint!
+
+    @IBOutlet weak var multipleBgView: UIView!
+    @IBOutlet weak var selectMultipleButton: UIButton!
+    @IBOutlet weak var recentsButton: UIButton!
+
+    @IBOutlet weak var downArrowImage: UIImageView!
+    @IBOutlet weak var multipleImage: UIImageView!
+    @IBOutlet weak var libraryTitle: UILabel!
+    @IBOutlet weak var selectMultipleLabel: UILabel!
     
     let maxNumberWarningView = UIView()
     let maxNumberWarningLabel = UILabel()
@@ -33,9 +47,15 @@ final class YPLibraryView: UIView {
             }
         }
     }
+    var buttonsDelegate: MultipleAndRecentButtonsProtocol? = nil
+    var isMultipleTapped = false
     
     override func awakeFromNib() {
         super.awakeFromNib()
+
+        downArrowImage.image = YPConfig.icons.downArrowGray
+        multipleImage.image = YPConfig.icons.multipleSelectBlack
+        multipleBgView.layer.cornerRadius = 15
         
         sv(
             line
@@ -91,6 +111,22 @@ final class YPLibraryView: UIView {
         progressView.progressTintColor = YPConfig.colors.progressBarCompletedColor ?? YPConfig.colors.tintColor
         progressView.isHidden = true
         progressView.isUserInteractionEnabled = false
+    }
+
+    @IBAction func recentButtonTapped(_ sender: UIButton) {
+        buttonsDelegate?.recentButtonTapped()
+    }
+
+    @IBAction func multipleSelectButtonTapped(_ sender: UIButton) {
+        isMultipleTapped.toggle()
+        buttonsDelegate?.selectMultipleButtonTapped()
+        UIView.transition(with: multipleImage, duration: 0.3, options: .transitionCrossDissolve) { [self] in
+            multipleBgView.backgroundColor = isMultipleTapped ? YPConfig.colors.multipleImageSelectedColor : YPConfig.colors.multipleImageDeselectedColor
+            selectMultipleLabel.textColor = isMultipleTapped ? .white : .black
+            multipleImage.image = isMultipleTapped ? YPConfig.icons.multipleSelectWhite : YPConfig.icons.multipleSelectBlack
+        } completion: { _ in
+            print("Completed")
+        }
     }
 }
 
